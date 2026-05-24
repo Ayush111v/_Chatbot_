@@ -1,0 +1,1 @@
+mkdir (FILE NAME) to make file via terminal - cd for file in folder wants to make 
