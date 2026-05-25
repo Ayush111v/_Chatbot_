@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import MessageBubble from '../components/MessageBubble'
+import { sendMessageToBot } from '../services/chatService'
 
 function Chat() {
 
