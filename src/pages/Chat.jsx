@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import MessageBubble from '../components/MessageBubble'
 
 function Chat() {
 
@@ -17,37 +18,52 @@ function Chat() {
 
   const handleSend = () => {
 
-    if (message.trim() === '') {
-      return
-    }
 
-    const newMessage = {
-      sender: 'user',
-      text: message
-    }
 
-    setMessages([...messages, newMessage])
-
-    setMessage('')
+  if (message.trim() === '') {
+    return
   }
 
+  const userMessage = {
+    sender: 'user',
+    text: message
+  }
+
+  setMessages((prevMessages) => [
+    ...prevMessages,
+    userMessage
+  ])
+
+  setMessage('')
+
+  setTimeout(() => {
+
+    const botReply = {
+      sender: 'bot',
+      text: 'This is a fake AI response'
+    }
+
+    setMessages((prevMessages) => [
+      ...prevMessages,
+      botReply
+    ])
+
+  }, 1000)
+}
   return (
     <div style={styles.container}>
 
       <div style={styles.chatBox}>
 
-        {messages.map((msg, index) => (
-          <div
-            key={index}
-            style={
-              msg.sender === 'user'
-                ? styles.userMessage
-                : styles.botMessage
-            }
-          >
-            {msg.text}
-          </div>
-        ))}
+   
+
+   {messages.map((msg, index) => (
+  <MessageBubble
+    key={index}
+    sender={msg.sender}
+    text={msg.text}
+  />
+))}
 
       </div>
 
