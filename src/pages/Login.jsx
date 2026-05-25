@@ -60,7 +60,7 @@ const styles = {
     borderRadius: '10px',
     display: 'flex',
     flexDirection: 'column',
-    gap: '15px'
+    gap: '16px'
   },
 
   input: {
