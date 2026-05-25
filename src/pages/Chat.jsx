@@ -17,54 +17,46 @@ function Chat() {
     }
   ])
 
-  const handleSend = () => {
+  const handleSend = async () => {
 
-
-
-  if (message.trim() === '') {
-    return
-  }
-
-  const userMessage = {
-    sender: 'user',
-    text: message
-  }
-
-  setMessages((prevMessages) => [
-    ...prevMessages,
-    userMessage
-  ])
-
-  setMessage('')
-
-  setTimeout(() => {
-
-    const botReply = {
-      sender: 'bot',
-      text: 'This is a fake AI response'
+    if (message.trim() === '') {
+      return
     }
+
+    const userMessage = {
+      sender: 'user',
+      text: message
+    }
+
+    setMessages((prevMessages) => [
+      ...prevMessages,
+      userMessage
+    ])
+
+    const currentMessage = message
+
+    setMessage('')
+
+    const botReply = await sendMessageToBot(currentMessage)
 
     setMessages((prevMessages) => [
       ...prevMessages,
       botReply
     ])
+  }
 
-  }, 1000)
-}
   return (
     <div style={styles.container}>
 
       <div style={styles.chatBox}>
 
-   
-
-   {messages.map((msg, index) => (
-  <MessageBubble
-    key={index}
-    sender={msg.sender}
-    text={msg.text}
-  />
-))}
+        {messages.map((msg, index) => (
+          <MessageBubble
+            key={index}
+            sender={msg.sender}
+            text={msg.text}
+          />
+        ))}
 
       </div>
 
@@ -108,23 +100,6 @@ const styles = {
     flexDirection: 'column',
     gap: '10px',
     marginBottom: '20px'
-  },
-
-  userMessage: {
-    alignSelf: 'flex-end',
-    backgroundColor: 'black',
-    color: 'white',
-    padding: '10px',
-    borderRadius: '10px',
-    maxWidth: '300px'
-  },
-
-  botMessage: {
-    alignSelf: 'flex-start',
-    backgroundColor: 'white',
-    padding: '10px',
-    borderRadius: '10px',
-    maxWidth: '300px'
   },
 
   inputArea: {

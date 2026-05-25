@@ -1,16 +1,25 @@
+import API from './api'
+
 export const sendMessageToBot = async (message) => {
 
-  return new Promise((resolve) => {
+  try {
 
-    setTimeout(() => {
+    const response = await API.post('/chat/send', {
+      message: message
+    })
 
-      resolve({
-        sender: 'bot',
-        text: `AI Reply for: ${message}`
-      })
+    return {
+      sender: 'bot',
+      text: response.data.reply
+    }
 
-    }, 1000)
+  } catch (error) {
 
-  })
+    return {
+      sender: 'bot',
+      text: 'Error connecting to server'
+    }
+
+  }
 
 }
