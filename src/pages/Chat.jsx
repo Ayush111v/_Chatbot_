@@ -118,8 +118,9 @@ const styles = {
     backgroundColor: 'black',
     color: 'white',
     border: 'none',
-    cursor: 'pointer'
     
+    cursor: 'pointer'
+
   }
 
 }
