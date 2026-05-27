@@ -26,7 +26,7 @@ public class GeminiService {
     public String getResponse(String message) {
 
         String url =
-                "/v1beta/models/gemini-2.0-flash:generateContent?key="
+                "/v1/models/gemini-1.5-flash-latest:generateContent?key="
                         + apiKey;
 
         Map<String, Object> requestBody = Map.of(
