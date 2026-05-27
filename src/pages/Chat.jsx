@@ -119,6 +119,7 @@ const styles = {
     color: 'white',
     border: 'none',
     cursor: 'pointer'
+    
   }
 
 }
