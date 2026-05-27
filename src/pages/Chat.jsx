@@ -121,8 +121,9 @@ const styles = {
     cursor: 'pointer'
 
   }
-  
+
 
 }
+
 
 export default Chat
