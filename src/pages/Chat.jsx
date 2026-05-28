@@ -123,8 +123,6 @@ const styles = {
   }
 
 
-
-
 }
 
 export default Chat
