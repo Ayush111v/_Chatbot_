@@ -112,6 +112,8 @@ const styles = {
     padding: '10px',
     fontSize: '16px'
   },
+  
+  
 
   button: {
     padding: '10px 20px',
