@@ -25,6 +25,8 @@ function Login() {
           style={styles.input}
         />
 
+        
+
         <input
           type="password"
           placeholder="Enter password"
