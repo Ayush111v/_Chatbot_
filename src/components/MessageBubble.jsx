@@ -13,6 +13,7 @@ function MessageBubble({ sender, text }) {
   )
 }
 
+
 const styles = {
 
   userMessage: {
